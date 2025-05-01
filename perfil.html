@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./css/fonts.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Háptica | Perfil</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-white">
+  <!-- HEAD -->
+  <header class="fixed w-full h-[110px] bg-[#fffffff2] z-[100]">
+    <div class="max-w-7xl m-auto w-full h-[110px] grid grid-cols-8">
+      <div class="col-span-2 h-full flex items-center justify-center">
+        <a href="/">
+          <img src="./public/images/logo-marca.png" alt="haptica logo" class="w-full max-w-[200px]">
+        </a>
+      </div>
+      <div class="col-span-4 h-full grid grid-cols-3">
+        <span class="col-span-1 flex items-center justify-center font-poppins-light font-medium">
+          <a href="/nosotros.html"  class="flex items-center">
+            NOSOTROS
+          </a>
+        </span>
+        <span class="col-span-1 flex items-center justify-center font-poppins-light font-medium">
+          <a href="/perfil.html" class="flex items-end px-2 border-b-2 border-[#f5ad98]">
+            PERFIL
+            <img src="./public/images/user.png" class="w-[22px] opacity-75">
+          </a>
+        </span>
+        <span class="col-span-1 flex items-center justify-center font-poppins-light font-medium">
+          <a href="/carrito.html" class="flex items-end">
+            CARRITO
+            <img src="./public/images/buy.png" class="w-[22px] opacity-75">
+          </a>
+        </span>
+      </div>
+      <div class="col-span-2 h-full p-2 flex items-center justify-center">
+        <div class="w-[80%] flex rounded-full bg-white h-[40px] border-solid border-2 border-black box-border">
+          <button class="h-[38px] w-[38px] flex justify-center items-center flex-none rounded-full text-[#ffffff] bg-[#000000] cursor-pointer outline-none border-none">
+            <img src="./public/images/search.png" class="w-[22px]">
+          </button>
+          <input type="search" placeholder="Buscar..." class="font-comfortaa w-full bg-transparent outline-none border-none pl-2 text-[.9rem]">
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- HEAD -->
+
+  <!-- CONTENT -->
+  <section class="max-w-7xl m-auto w-full h-screen grid grid-cols-2">
+    <div class="h-full col-span-1 flex bg-[#f5ad98] bg-[url(./public/images/Encabezado-Perfil.jpg)] bg-cover bg-no-repeat bg-center">
+      
+    </div>
+    <div class="h-full col-span-1 flex justify-center items-center">
+      <div class="w-full px-15">
+        <h1 class="font-poppins-extra-bold text-[3.8rem] pb-2">
+          Háptica
+        </h1>
+        <span class="font-comfortaa text-[1rem]">
+          Iniciar Sesión | Registrarse
+        </span>
+        <div class="w-full flex flex-col gap-2 py-5">
+          <input type="email" name="email" placeholder="Correo" class="w-full px-2 py-3 text-[12px] border-solid border-black border-2 rounded-full font-comfortaa">
+          <input type="password" name="password" placeholder="Contraseña" class="w-full px-2 py-3 text-[12px] border-solid border-black border-2 rounded-full font-comfortaa">
+          <div class="w-full font-comfortaa text-[.8rem] flex flex-col gap-1 px-2 py-1">
+            <span>
+              <input type="checkbox" id="remember_user" name="remember_user" value="remember_user">
+              <label for="remember_user">Recordar perﬁl</label>
+            </span>
+            <a href="#">¿Olvidaste la constraseña?</a>
+          </div>
+        </div>
+        <button class="cursor-pointer font-poppins-light bg-[#ffb19a] py-1 flex-none px-5 w-fit rounded-full text-[15px]">
+          Entrar
+        </button>
+      </div>
+    </div>
+  </section>
+  <!-- CONTENT -->
+
+  <!-- FOOTER -->
+  <footer class="max-w-7xl m-auto w-full px-10">
+    <section class="flex justify-between px-15 w-full h-[60px] items-center border-solid border-t-1">
+      <span class="font-comfortaa text-[.8rem]">México | Español</span>
+      <span class="font-comfortaa text-[.8rem]">© 2025 Háptica</span>
+    </section>
+  </footer>
+  <!-- FOOTER -->
+</body>
+</html>
