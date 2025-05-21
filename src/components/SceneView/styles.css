@@ -1,0 +1,26 @@
+.scene {
+  width: 100%;
+  position: relative;
+  border-bottom: solid 10px white;
+}
+
+.scene img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  vertical-align: middle;
+}
+
+.scene .layer {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+.scene video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
