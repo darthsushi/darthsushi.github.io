@@ -7,10 +7,32 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Planc Thin';
+  src: url('assets/fonts/Planc-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Planc Medium';
+  src: url('assets/fonts/Planc-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 .font-planc {
   font-family: Planc;
+}
+
+.font-planc-medium {
+  font-family: 'Planc Medium';
+}
+
+.font-planc-thin {
+  font-family: 'Planc Thin';
 }

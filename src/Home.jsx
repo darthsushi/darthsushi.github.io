@@ -1,6 +1,7 @@
 import './Home.css'
-import ChapterView from './components/ChapterView'
-import { CHAPTERS } from '../settings'
+import { NavLink } from 'react-router';
+import ChapterView from './components/ChapterView';
+import { CHAPTERS } from '../settings';
 
 
 function Home() {
@@ -12,7 +13,7 @@ function Home() {
         <img className="w-full max-w-[250px] lg:max-w-[350px] xl:max-w-[450px]" src="/assets/logo.svg" />
         <div className='p-10 flex gap-2 md:gap-4'>
           <a href="#chapter1" className='text-nowrap font-planc px-8 rounded-full border-1 text-[#e67ea7] border-[#e67ea7] hover:text-[black] hover:bg-[#e67ea7] cursor-pointer'>Leer novela</a>
-          <button className='text-nowrap font-planc px-8 rounded-full border-1 text-[#e67ea7] border-[#e67ea7] hover:text-[black] hover:bg-[#e67ea7] cursor-pointer'>Explorar tienda</button>
+          <NavLink className='text-nowrap font-planc px-8 rounded-full border-1 text-[#e67ea7] border-[#e67ea7] hover:text-[black] hover:bg-[#e67ea7] cursor-pointer' to="/store">Explorar tienda</NavLink>
         </div>
       </section>
       <section className="w-full h-[350px] z-10 flex justify-center items-center lg:h-[550px] bg-[url(/assets/mobile/paper.png)] lg:bg-[url(/assets/desktop/paper.png)] bg-cover bg-center bg-no-repeat">
