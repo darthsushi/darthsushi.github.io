@@ -37,6 +37,10 @@ function Product() {
     setRecomends(getThreeExcludingId())
     setPhotoOnView(product.photos[0])
     setAmount(1)
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }, [product])
 
   return (
@@ -65,7 +69,7 @@ function Product() {
             </div>
           </div>
           <div className="col-span-1 p-3 md:p-5">
-            <h2 className="font-planc-medium text-[#e67ea7] text-[2.6rem]">{ product.name }</h2>
+            <h2 className="font-planc-medium text-[#e67ea7] text-[2.6rem] leading-10 mb-3">{ product.name }</h2>
             
             <span className="font-planc text-[1.5rem]">
               ${ product.price } <span className="font-planc-thin text-[1.2rem]">MXN</span>
