@@ -9,6 +9,7 @@ import './index.css'
 import Home from './Home.jsx'
 import Store from './pages/Store.jsx'
 import Product from './pages/Product.jsx'
+import Reset from './pages/Reset.jsx'
 import { AltairProvider, useAltair } from './context/app.context.jsx'
 import DrawerContainer from './components/DrawerContainer/index.jsx'
 
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/store/:id",
     element: <Product />,
+  },
+  {
+    path: "/reset",
+    element: <Reset />,
   }
 ]);
 
