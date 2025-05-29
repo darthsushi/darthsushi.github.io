@@ -1,32 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router"
 import SceneView from "../SceneView";
 import ModalContainer from "../ModalContainer";
-
-function setCache(key, value, ttlMinutes = 15) {
-  const now = Date.now();
-  const item = {
-    value,
-    expiry: now + ttlMinutes * 60 * 1000,
-  };
-
-  localStorage.setItem(key, JSON.stringify(item));
-}
-
-function getCache(key) {
-  const itemStr = localStorage.getItem(key);
-  if (!itemStr) return null;
-
-  const item = JSON.parse(itemStr);
-  const now = Date.now();
-
-  if (now > item.expiry) {
-    localStorage.removeItem(key);
-    return null;
-  }
-
-  return item.value;
-}
+import { useAltair } from "../../context/app.context";
 
 function getRandomAd() {
   const ads = ['/ads/1.mp4', '/ads/2.mp4']
@@ -62,15 +38,15 @@ function ModalUnlockChapter({ setIsUnlockOpen, setIsVideoAd }) {
 function LockedScreen({ chapterId, setIsUnlockOpen }) {
   return (
     <SceneView src={ `/novela/${chapterId}/locked.webp` } >
-      <div className="w-full h-full bg-[#220d40d6] flex justify-center items-center gap-5 flex-col relative">
+      <div className="w-full h-full bg-[#220d40d6] flex justify-center items-center gap-2 flex-col relative">
         <div className="absolute w-[150px] h-[50px] top-0 left-0 flex justify-center items-center">
           <a href="#home" className="flex gap-2">
             <img className="w-[20px]" src="/assets/up.svg" alt="Ir al inicio" />
             <span className="text-white text-[.9rem]">Ir al inicio</span>
           </a>
         </div>
-        <img className="w-full max-w-[35px]! md:max-w-[100px]!" src="assets/candado.svg" />
-        <div onClick={ () => setIsUnlockOpen(true) } className="font-planc text-white text-[.9rem] md:text-[1.5rem] lg:text-[1.8rem] cursor-pointer bg-transparent border-b-1 border-white">
+        <img className="w-full max-w-[30px]! md:max-w-[60px]!" src="assets/candado.svg" />
+        <div onClick={ () => setIsUnlockOpen(true) } className="font-planc text-white text-[.9rem] md:text-[1.3rem] cursor-pointer bg-transparent border-b-1 border-white">
           ¿Quieres continuar con la experiencia?
         </div>
       </div>
@@ -79,7 +55,8 @@ function LockedScreen({ chapterId, setIsUnlockOpen }) {
 }
 
 function LockedwithAd({ children, chapterId }) {
-  const [isLocked, setIsLocked] = useState(true);
+  const { isBookUnlucked, isChapterUnlocked, unlockChapterTemporaly } = useAltair();
+  const [isLocked, setIsLocked] = useState(!isChapterUnlocked(chapterId));
   const [isUnlockOpen, setIsUnlockOpen] = useState(false);
   const [isVideoAd, setIsVideoAd] = useState(false);
   const ad = getRandomAd();
@@ -88,18 +65,10 @@ function LockedwithAd({ children, chapterId }) {
     setIsVideoAd(false);
     setIsUnlockOpen(false);
     setIsLocked(false);
-    setCache(chapterId, true);
+    unlockChapterTemporaly(chapterId);
   }
 
-  useEffect(() => {
-    const isBookUnlocked = getCache('isBookUnlocked');
-    const isChapterUnlocked = isBookUnlocked ? true : getCache(chapterId);
-
-    setIsLocked(!isChapterUnlocked)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  return isLocked ? <>
+  return isLocked && !isBookUnlucked ? <>
     <LockedScreen chapterId={ chapterId } setIsUnlockOpen={ setIsUnlockOpen } />
     <ModalContainer isOpen={ isUnlockOpen }>
       { !isVideoAd ? <ModalUnlockChapter setIsVideoAd={ setIsVideoAd } setIsUnlockOpen={ setIsUnlockOpen } /> :

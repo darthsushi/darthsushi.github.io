@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import {
@@ -8,6 +9,8 @@ import './index.css'
 import Home from './Home.jsx'
 import Store from './pages/Store.jsx'
 import Product from './pages/Product.jsx'
+import { AltairProvider, useAltair } from './context/app.context.jsx'
+import DrawerContainer from './components/DrawerContainer/index.jsx'
 
 const router = createBrowserRouter([
   {
@@ -24,10 +27,22 @@ const router = createBrowserRouter([
   }
 ]);
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <div page="Cartas a Altair" by="darthsushi.wtf" className="w-full min-h-screen bg-[#201f49] flex flex-col">
+function MainContent() {
+  const { isDrawerOpen } = useAltair();
+  const className = isDrawerOpen ? 'w-full h-screen bg-[#201f49] flex flex-col overflow-hidden' : 'w-full min-h-screen bg-[#201f49] flex flex-col';
+
+  return (
+    <div page="Cartas a Altair" by="darthsushi.wtf" className={ className }>
       <RouterProvider router={ router } />
     </div>
+  )
+}
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <AltairProvider>
+      <MainContent />
+      <DrawerContainer />
+    </AltairProvider>
   </StrictMode>,
 )
