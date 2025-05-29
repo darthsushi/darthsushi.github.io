@@ -122,7 +122,7 @@ function DrawerContainer() {
               $ { total } MXN
             </span>
           </div>
-          <button onClick={ () => setIsModalOpen(true) } disabled={ shoppingCart.length <= 0 } className="w-full text-nowrap font-planc px-8 py-1 rounded-full border-1 bg-[#e67ea7] text-[white] cursor-pointer">
+          <button onClick={ () => { setIsDrawerOpen(false); setIsModalOpen(true); } } disabled={ shoppingCart.length <= 0 } className="w-full text-nowrap font-planc px-8 py-1 rounded-full border-1 bg-[#e67ea7] text-[white] cursor-pointer">
             Tramitar pedido
           </button>
         </div>
@@ -136,7 +136,7 @@ function DrawerContainer() {
           </p>
           { isByBook &&
             <div className="w-full py-5 flex justify-center">
-              <a className='border-1 border-[#e67ea7] rounded-lg cursor-pointer flex'>
+              <a target="_blank" href="/CartasaAltair.pdf" className='border-1 border-[#e67ea7] rounded-lg cursor-pointer flex'>
                 <div className='text-nowrap lg:text-[1.3rem] font-planc px-3 text-[#e67ea7] border-r-1 border-r-[#e67ea7]'>
                   Descargar novela completa (PDF)
                 </div>
