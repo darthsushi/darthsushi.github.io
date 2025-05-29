@@ -25,7 +25,7 @@ function Store() {
         </div>
       </section>
       <div className="relative w-full h-[200px] bg-cover bg-top bg-no-repeat bg-[url(/assets/paper_onli.png)] z-10" />
-      <section className="relative *:w-full min-h-screen bg-[url(/assets/textura.png)] pb-[150px] mt-[-2px] bg-red-600">
+      <section className="relative *:w-full min-h-screen bg-[url(/assets/textura.png)] pb-[150px] mt-[-2px]">
         <div className="w-full m-auto max-w-[1000px] grid grid-cols-1 md:grid-cols-3 gap-3">
           {
             MERCH.map((product) => {

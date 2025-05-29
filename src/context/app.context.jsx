@@ -1,5 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useEffect, useState } from 'react';
+import { CHAPTERS } from '../../settings';
 
 
 const CACHE_ALTAIR_KEYS = {
@@ -17,6 +18,10 @@ function setCache(key, value, ttlMinutes = 15) {
   };
 
   localStorage.setItem(key, JSON.stringify(item));
+}
+
+function cleanCache() {
+  localStorage.clear()
 }
 
 function getCache(key) {
@@ -99,6 +104,7 @@ function AltairProvider({ children }) {
       isDrawerOpen,
       shoppingCart,
       isBookUnlucked,
+      cleanCache,
       addItemToCart,
       cleanShoppingCart,
       isChapterUnlocked,
