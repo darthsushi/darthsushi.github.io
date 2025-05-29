@@ -5,6 +5,8 @@ const CHAPTERS = [
   { scenes: ['1.webp', '2.webp', '3.webp', '4.webp', '5.webp', '6.webp', '7.webp', '8.webp' ], locked: true, id: 'chapter4', title: 'Capitulo 4' },
   { scenes: ['1.webp', '2.webp', '3.webp', '4.webp', '5.webp', '6.webp', '7.webp', '8.webp' ], locked: true, id: 'chapter5', title: 'Capitulo 5' },
   { scenes: ['1.webp', '2.webp', '3.webp', '4.webp', '5.webp', '6.webp' ], locked: true, id: 'chapter6', title: 'Capitulo 6' },
+  { scenes: ['1.webp', '2.webp', '3.webp', '4.webp', '5.webp', '6.webp', '7.webp', '8.webm' ], locked: true, id: 'chapter7', title: 'Capitulo 7' },
+  { scenes: ['1.webm'], locked: false, id: 'chapter8', title: 'Capitulo 8' },
 ]
 
 const MERCH = [
