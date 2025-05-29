@@ -21,6 +21,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Planc Bold';
+  src: url('assets/fonts/Planc-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -35,4 +42,8 @@ html {
 
 .font-planc-thin {
   font-family: 'Planc Thin';
+}
+
+.font-planc-bold {
+  font-family: 'Planc Bold';
 }
